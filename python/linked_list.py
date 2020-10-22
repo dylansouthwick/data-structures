@@ -10,8 +10,22 @@ class LinkList:
     current.next = Node(data)
 
   def remove(self, data):
-    # write your code to REMOVE an element from the Linked List
-    pass
+    # 1 2 3 4
+    # remove :3
+    # current = head
+    # when current.next.data == 3
+    # current.next = current.next.next
+    # current = current.next
+    current = self.head
+    while current.next.data != data:
+      current = current.next
+    temp = current.next # target = 3
+    current.next = current.next.next
+    return temp
+
+    # 1 -> 2 -> 3 -> 4
+    # 1 -> 2 -> 4
+    #         3
 
   def get(self, element_to_get):
     # 1 2 3 4
@@ -48,3 +62,6 @@ ll.add(4)
 print(ll)
 print('getting 2:',ll.get(2).data)
 print('getting 5: ',ll.get(5))
+
+print('removing 3', ll.remove(3).data)
+print('print ll after removing:', ll)
