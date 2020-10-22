@@ -1,14 +1,25 @@
 class Stack:
   # write your __init__ method here that should store a 'total' value which is the total number of elements in the Stack and a 'stack' value which is an array of stored values in the Stack
+  def __init__(self):
+    self.container = []
 
-  def push(self):
-    # write your code to add data following LIFO and return the Stack
-    pass
+  def push(self,value):
+    self.container.append(value)
 
-  def pop(self, data):
-    # write your code to removes the data following LIFO and return the Stack
-    pass
+  def pop(self):
+    return self.container.pop()
 
   def size(self):
-    # write your code that returns the size of the Stack
-    pass
+    return len(self.container)
+  
+  def __str__(self):
+    return str(self.container)
+
+stack = Stack()
+stack.push(1)
+stack.push(2)
+stack.push(3)
+print(stack) # 123
+
+print('popped last one', stack.pop()) #3
+print(stack) #12
